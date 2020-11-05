@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>3 Column Layout</title>
+        <link rel="stylesheet" href="assets/css/layout.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+    </head>
+    <body>
+        <header class="header">
+            <p><img class="logo" src="assets/img/logo.png">Header...</p>
+        </header>
+        <div class="container">
+            <main class="center column">
+                <article>
+                    <h1>Heading</h1>
+                    <p><h1>Paint.html</h1></p>
+                    <canvas id="draw" width="490" height="220" style="border: 1px solid black;"></canvas>
+                    <div style="float: left;">
+                        <p style="margin-right: 10px;">Paint color
+                        <input id="paintColor" type="color" value="#000000"></p>
+                        <p style="margin-right: 10px;">Paint size
+                            <select id="paintSize">
+                                <option value="5">5px</option>
+                                <option value="10">10px</option>   
+                                <option value="15">15px</option>   
+                                <option value="20">20px</option>       
+                            </select></p>
+                        <input id="btClear" type="submit" value="CLEAR" onclick="clearCanvas()">
+                    </div>
+
+                </article>
+            </main>
+            <nav class="left column">
+                <h3>Left heading</h3>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="media.html">Media</a></li>
+                    <li><a href="slider.html">Slider</a></li>
+                    <li><a href="table.html">Table</a></li>
+                </ul>
+                <h3>Left heading</h3>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="media.html">Media</a></li>
+                    <li><a href="slider.html">Slider</a></li>
+                    <li><a href="table.html">Table</a></li>
+                </ul>
+            </nav>
+            <div class="right column">
+                <h3>Right heading</h3>
+                <p></p>
+            </div>
+        </div>
+        <div class="footer-wrapper">
+            <footer class="footer">
+                <p><img class="logo" src="assets/img/logo.png">Footer...</p>
+            </footer>
+        </div>
+    </body>
+</html>
+<script src="assets/js/paint.js"></script>

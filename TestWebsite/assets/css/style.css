@@ -143,3 +143,14 @@ table, th, td {
     border: 2px solid orange;
     border-collapse: collapse;
   }
+
+#btClear {
+    width: 100px;
+    height: 35px;
+    background-color: yellow;
+    border: 1px solid black;
+    border-radius: 5%;
+    color: black;
+    font-weight: bold;
+    margin: 10px 20px 10px 0;
+}
