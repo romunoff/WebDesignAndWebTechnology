@@ -1,0 +1,145 @@
+.logo {
+    width: 75px;
+    height: 75px;
+}
+
+.text-style {
+    font-size: 50pt;
+    font-weight: lighter;
+    font-style: italic;
+    font-family: 'Times New Roman', Times, serif;
+    color: #ff8800;
+    text-align: center;
+}
+
+.p-left {
+    width: 50%;
+    float: left;  
+}
+
+.p-right {
+    width: 50%;
+    float: right;  
+}
+
+.form-row {
+    position: relative;
+    margin-bottom: 40px;
+    font-size: 20px;
+    font-weight: 300;
+    color: grey;
+}
+
+.form-row input {
+    display: block;
+    width: 90%;
+    padding: 0 10px;
+    line-height: 40px;
+    background: none;
+    border-width: 0;
+    border-bottom: 2px solid black;
+}
+
+.form-row label {
+    position: absolute;
+    left: 13px;
+    color: grey;
+    font-size: 20px;
+    font-weight: 300;
+    transform: translateY(-35px);
+}
+
+.form-row input:focus {
+    outline: 0;
+    border-color: black;
+}
+
+.form-row input:focus + label, .form-row input:valid + label {
+    transform: translateY(-60px);
+    margin-left: -14px;
+    font-size: 14px;
+    font-weight: 400;
+    outline: 0;
+    border-color: black;
+}
+
+.form input[type="submit"] {
+    width: 20%;
+    padding: 0;
+    line-height: 42px;
+    background: gray;
+    border-width: 0;
+    color: white;
+    font-size: 20px;
+}
+
+.form select {
+    display: block;
+    width: 20%;
+    padding: 0 10px;
+    line-height: 40px;
+    background: none;
+    border-width: 0;
+    border-bottom: 2px solid black;
+}
+
+.form .lblSelect {
+    position: absolute;
+    left: -1px;
+    color: grey;
+    font-size: 14px;
+    font-weight: 400;
+    transform: translateY(-35px);
+}
+
+.form-row textarea {
+    display: block;
+    width: 90%;
+    padding: 0 10px;
+    line-height: 20px;
+    background: none;
+    border-width: 0;
+    border-bottom: 2px solid black;
+    resize: none;
+}
+
+.form-row textarea:focus {
+    outline: 0;
+    border-color: black;
+}
+
+.form-row textarea:focus + label, .form-row textarea:valid + label {
+    transform: translateY(0px);
+    margin-left: -14px;
+    font-size: 14px;
+    font-weight: 400;
+    outline: 0;
+    border-color: black;
+}
+
+.form-row input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    float: left;
+    margin-right: 10px;
+}
+
+.form p {
+    margin: 0;
+    padding-top: 10px;
+}
+
+table {
+    width: 50%;
+    text-align: center;
+}
+
+table th {
+    background: grey;
+    color: white;
+}
+
+table, th, td {
+    border: 2px solid orange;
+    border-collapse: collapse;
+  }
