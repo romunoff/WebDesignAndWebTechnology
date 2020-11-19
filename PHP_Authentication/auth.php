@@ -1,13 +1,20 @@
 <?php 
 session_start(); 
-$login = 'admin';
-$password = '1111';
+
+require_once("db.php");
+
+/*$login = 'admin';
+$password = '1111';*/
 
 $_SESSION['auth'] = false;
 
-if ($_POST['submit']) {
-    if ($login == $_POST['login'] && $password == $_POST['pass']) {
-        $_SESSION['auth'] = true;
+if (count($_POST) > 0) {
+    $res = mysqli_query($conn, 'SELECT `login`, `password` FROM `users`');
+    while($row = mysqli_fetch_array($res)){
+        if ($row['login'] == $_POST['login'] && $row['password'] == $_POST['pass']) {
+            $_SESSION['auth'] = true;
+            break;
+        }  
     }
 }
 header('Location: restricted.php');
