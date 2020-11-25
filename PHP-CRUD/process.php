@@ -2,13 +2,7 @@
     require "db.php";
 
     $id = 0;
-    $first_name = '';
-    $last_name = '';
-    $role = '';
-    $email = '';
-    $password = '';
-    $photo = '';
-
+    $first_name = ''; $last_name = ''; $role = ''; $email = ''; $password = ''; $photo = '';
     $update = false;
 
     if(isset($_POST['signin'])) {
@@ -49,17 +43,44 @@
         $email = $_POST['email'];
         $password = $_POST['password'];
 
-        /*$target_dir = "public/images/";
-        $target_file = $target_dir.basename($_FILES["photo"]["name"]);*/
-
-        $photo = $_FILES["photo"]["name"];
+        $photo = $_FILES['photo']['name'];
+        move_uploaded_file($_FILES['photo']['tmp_name'], "assets/img/$photo");
 
         $mysqli->query("UPDATE users SET first_name='$first_name', last_name='$last_name', email='$email', password='$password', photo='$photo' WHERE id=$id") or die($mysqli->error);
         $update = false;
-
         $_SESSION['username'] = $first_name;
 
         header("Location: profile.php?id=$id");
     }
 
-?>
+    if(isset($_GET['delete'])) {
+        $id = $_GET['delete'];
+        
+        $mysqli->query("DELETE FROM users WHERE id=$id") or die($mysqli->error);
+        header("Location: index.php");
+    }
+
+    if(isset($_POST['signup'])) {
+        $unique = true;
+
+        $result = $mysqli->query("SELECT email, password FROM users") or die(mysqli_error($mysqli));
+        while ($row = $result->fetch_assoc()) {
+            if ($row['email'] == $_POST['email']) {
+                $unique = false;
+                break;
+            }
+        }
+
+        if ($unique && $_POST['password'] == $_POST['repeatPassword']) {
+            unset($_SESSION['errorEmail']);
+            unset($_SESSION['errorPassword']);
+            $mysqli->query("INSERT INTO users (first_name, last_name, email, password, role_id) VALUES ('{$_POST['first_name']}', '{$_POST['last_name']}', '{$_POST['email']}', '{$_POST['password']}', '{$_POST['role']}')") or die($mysqli->error);
+            header("Location: index.php");
+        } else if ($unique && $_POST['password'] != $_POST['repeatPassword']) {
+            $_SESSION['errorPassword'] = true;
+            header("Location: registration.php");
+        } else {
+            $_SESSION['errorEmail'] = true;
+            header("Location: registration.php");
+        } 
+    }
