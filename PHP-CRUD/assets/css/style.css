@@ -1,0 +1,9 @@
+.vertical-align {
+    position: absolute;
+    top: 150px;
+}
+
+.picture-size {
+    width: 250px;
+    height: 250px;
+}
